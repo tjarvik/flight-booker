@@ -2,10 +2,14 @@
 
 <%= form_for(:booking, url: flights_index_path, method: :get) do |f| %>
     Origin: <%= select_tag(:from_airport, options_for_select(@airports)) %>
-    Destination: <%= select_tag(:from_airport, options_for_select(@airports)) %>
-    Travel date: <%= select_tag(:from_airport, options_for_select(@dates)) %>
+    Destination: <%= select_tag(:to_airport, options_for_select(@airports)) %>
+    Travel date: <%= select_tag(:month, options_for_select(@months)) %>
+    <%= select_tag(:day, options_for_select(@days)) %>
+    <%= select_tag(:year, options_for_select(@years)) %>
     <br>
-    Number of passengers: <%= select_tag(:from_airport, options_for_select(@passenger_counts)) %>
+    Number of passengers: <%= select_tag(:num_passengers, options_for_select(@num_passengers)) %>
 
     <%= f.submit "Search for flights" %>
 <% end %>
+
+<%= render 'flights_form' if @flights %>

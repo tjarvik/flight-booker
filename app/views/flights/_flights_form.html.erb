@@ -1,0 +1,11 @@
+<h3>Select your flight:</h3>
+<%= form_for(:booking, url: flights_index_path, method: :get) do |f| %>
+    <% @flights.each do |flight| %>
+        <%= radio_button_tag(:flight_id, flight.id) %>
+        <%= label_tag("flight_id_#{flight.id}", "Departs #{flight.from_airport.code} at #{flight.departure}, 
+            arrives #{flight.to_airport.code} at #{flight.departure + flight.duration}") %>
+        <br>
+    <% end %>
+    <%= f.hidden_field :num_passengers, value: @selected_num_passengers %>
+    <%= f.submit "Choose flight" %>
+<% end %>
