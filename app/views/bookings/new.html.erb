@@ -1,0 +1,17 @@
+<h3>Enter your passenger details</h3>
+
+<p>You have selected flight <%= @flight.id %>, departing <%= @flight.from_airport.code %> at 
+    <%= @flight.departure %>, arriving <%= @flight.to_airport.code %> at <%= @flight.departure + @flight.duration %>.</p>
+
+<%= form_for(@booking, url: bookings_new_path, method: :post) do |f| %>
+    <%= f.hidden_field :flight_id, value: @flight.id %>
+    
+    <%= f.fields_for :passengers do |p| %>
+        <div>Please enter passenger details:
+        Name: <%= p.text_field :name %>
+        Email: <%= p.text_field :email %>
+        </div>
+    <% end %>
+    
+    <%= f.submit "Book flight" %>
+<% end %>

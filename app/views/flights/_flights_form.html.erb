@@ -1,5 +1,5 @@
 <h3>Select your flight:</h3>
-<%= form_for(:booking, url: flights_index_path, method: :get) do |f| %>
+<%= form_for(:booking, url: bookings_new_path, method: :get) do |f| %>
     <% @flights.each do |flight| %>
         <%= radio_button_tag(:flight_id, flight.id) %>
         <%= label_tag("flight_id_#{flight.id}", "Departs #{flight.from_airport.code} at #{flight.departure}, 

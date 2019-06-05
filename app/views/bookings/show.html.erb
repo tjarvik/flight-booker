@@ -1,0 +1,12 @@
+<p>Congratulations! You have booked a FREE flight on Nowhere Airlines flight 
+<%= @booking.flight_id %>, traveling from 
+<%= @booking.flight.from_airport.code %> to 
+<%= @booking.flight.to_airport.code %>, departing at 
+<%= @booking.flight.departure %>, arriving at 
+<%= @booking.flight.departure + @booking.flight.duration %>.</p>
+
+Passengers:
+<% @passengers.each do |passenger| %>
+    <p><%= passenger.name %> (<%= passenger.email %>)</p>
+<% end %>
+
