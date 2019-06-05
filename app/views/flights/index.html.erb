@@ -1,0 +1,11 @@
+<h2>Book a flight</h2>
+
+<%= form_for(:booking, url: flights_index_path, method: :get) do |f| %>
+    Origin: <%= select_tag(:from_airport, options_for_select(@airports)) %>
+    Destination: <%= select_tag(:from_airport, options_for_select(@airports)) %>
+    Travel date: <%= select_tag(:from_airport, options_for_select(@dates)) %>
+    <br>
+    Number of passengers: <%= select_tag(:from_airport, options_for_select(@passenger_counts)) %>
+
+    <%= f.submit "Search for flights" %>
+<% end %>
