@@ -8,8 +8,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.create!(flight_id: params[:booking][:flight_id])
-    params[:booking][:passengers_attributes].each do |k, v|
-      Passenger.create!(booking_id: @booking.id, name: v[:name], email: v[:email])
+    @flight = Flight.find(params[:booking][:flight_id])
+    params[:booking][:passengers_attributes].each do |k, passenger_data|
+      @passenger = Passenger.create!(booking_id: @booking.id, 
+        name: passenger_data[:name], email: passenger_data[:email])
+      PassengerMailer.confirmation_email(@passenger, @flight).deliver_later
     end
     redirect_to "/bookings/#{@booking.id}"
   end

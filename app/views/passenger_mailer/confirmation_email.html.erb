@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Congratulations, <%= @passenger.name %>!</h3>
+    <p>You have booked a FREE flight on Nowhere Airlines flight 
+    <%= @flight.id %>, traveling from 
+    <%= @flight.from_airport.code %> to 
+    <%= @flight.to_airport.code %>, departing at 
+    <%= @flight.departure %>, arriving at 
+    <%= @flight.departure + @flight.duration %>.</p>
+    <p>We look forward to seeing you go nowhere!</p>
+  </body>
+</html>

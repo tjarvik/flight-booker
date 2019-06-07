@@ -1,0 +1,10 @@
+Congratulations, <%= @passenger.name %>!
+
+You have booked a FREE flight on Nowhere Airlines flight 
+<%= @flight.id %>, traveling from 
+<%= @flight.from_airport.code %> to 
+<%= @flight.to_airport.code %>, departing at 
+<%= @flight.departure %>, arriving at 
+<%= @flight.departure + @flight.duration %>.
+
+We look forward to seeing you go nowhere!
